@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<!--
+This is an HTML document. It describes how elements of the website
+are arranged. In other words, it describes the layout of a website.
+-->
+
+<!--
+The <head> of a website is where you can setup links to important style files (CSS files)
+with <link> tag and JavaScript files you want to include before the page elements are loaded
+with the <script> tag.
+-->
+<head>
+  <!-- This tells the browser how to read the document. -->
+  <meta charset="utf-8">
+  <!-- Tells the browser what the title of this page should be. -->
+  <title>Resume</title>
+  <!-- Load the page style.
+       You can have multiple of these.
+       The attributes are:
+       href, the location (which can be on the internet)
+       rel, the relationship between this file and the linked file (Confusingly think of as type)
+       type, the media type, (think of as format) not neccisarry but often used-->
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <!--
+  jQuery is a common JavaScript library for reading and making changes to the
+  Document Object Model (DOM). The DOM is a tree that contains information
+  about what is actually visible on a website.
+
+  While HTML is a static document, the browser converts HTML to the
+  DOM and the DOM can change.
+
+  The DOM is then what is changed by the JavaScript.
+  -->
+  <script src="js/jQuery.js"></script>
+
+  <script src="js/helper.js"></script>
+
+  <!--To be uncomented later to add the Map-->
+
+  <!--<script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>-->
+
+
+
+<!--The viewport is the user's visible area of a web page.
+ It varies with the device, and will be smaller on a mobile phone than on a computer screen.
+
+ The width=device-width part sets the width of the page to follow the screen-width of the device.
+
+ The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.
+-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body unresolved>
+  <div id="main">
+    <div id="header" class="center-content clearfix">
+      <ul id="topContacts" class='flex-box'></ul>
+    </div>
+    <div style='clear: both;'></div>
+    <div id="workExperience" class='gray'>
+      <h2>Work Experience</h2>
+    </div>
+    <div id="projects">
+      <h2>Projects</h2>
+    </div>
+    <div id="education" class='gray'>
+      <h2>Education</h2>
+    </div>
+    <div id="mapDiv">
+      <h2>Where I've Lived and Worked</h2>
+    </div>
+  </div>
+
+  <!--
+  The next line tells the browser where to download the JavaScript file you'll be
+  writing.
+  We include it after the HTML elements so we can modify them.
+  In resumeBuilder.js, you'll be writing code that builds the resume
+  "dynamically" when this website, index.html, is opened.
+  -->
+  <script src="js/resumeBuilder.js"></script>
+
+
+  <script>
+    // You can also add JavaScript inside HTML
+    // You write JavaScript between <script> tags. At the end of your
+    // JavaScript, don't forget the closing script tag with the slash (/).
+
+    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
+
+    //   two slashes for all following characters on a single line, or
+
+    /*
+        an opening and closing set of slash asterisks for block comments.
+    */
+
+
+    /*This is vanilla JavaScript (no jquery or other libraries).
+    document is the DOM object., it contains all the html in a tree structure.
+    the following methods (functions that can be run by the document object)
+    allow you to select certain element types and modify them. */
+
+
+    //black is an attribute of backgroundColor (a css element) which is the colour
+    //black (keep in mind, most code and languages are written in "American")
+    //that is to say in code colour is spelt color (that pesky 'u' will catch you out)
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('topContacts').style.backgroundColor = "black";
+    }
+
+    //You can also use hex codes ie RRGGBBAA
+    //RR is the hex value for red ie 00 to FF.
+    //RR is the red "Channel" GG is the green "Channel" GG is the blue "Channel"
+    //These three are the primary colours of light
+    //AA is the Alpha "Channel" ie the Transparency.
+    //Hex means base 16 (we count in decimal(base 10) binary is base 2, time is base 60 and degrees are base 360)
+    //As Hex is 0-15 (just as decimal is 0 to 9), we display the values as:
+    //1-9 for 1 to 9 and A to F for 10 to 15.
+    //Hex is preceded with a # (hashtag). #00000000 is solid Black (no colour)
+    if(document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.backgroundColor = "#000000";
+    }
+
+    //=== is the same as == (equality) but in JavaScript this ensures the types are the same.
+    if(document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('workExperience').style.backgroundColor = "#000000";
+    }
+    if(document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.backgroundColor = "black";
+    }
+    if(document.getElementsByClassName('education-entry').length === 0) {
+      document.getElementById('education').style.backgroundColor = "black";
+    }
+
+    if(document.getElementById('map') === null) {
+      document.getElementById('mapDiv').style.backgroundColor = "black";
+    }
+  </script>
+</body>
+</html>
